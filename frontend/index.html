@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <form method="POST" action="senden.html">
+    <form method="POST" action="https://dx7jikmf16.execute-api.eu-central-1.amazonaws.com/dev/sample">
         <input type="hidden" name="fingerprint" id="fingerprint">
 
 
@@ -33,16 +33,16 @@
 
                 </div>
             </div>
-            <div class="row pt-4" id="group_self">
+            <div class="row pt-4" id="group_target">
                 <div class="col">
                     <h4>Um wen geht es?</h4>
                     Möchtest du diese Daten für dich oder jemanden anderes erfassen? Wenn es um jemand anderen geht, beziehen sich alle Fragen auf diese Person.<br>
-                    <div class="btn-group btn-group-toggle d-flex pt-2" id="input_self" data-toggle="buttons">
+                    <div class="btn-group btn-group-toggle d-flex pt-2" id="input_target" data-toggle="buttons">
                         <label class="btn btn-outline-info active">
-                            <input type="radio" name="input_self" id="me" autocomplete="off" value="me" checked> Mich
+                            <input type="radio" name="input_target" id="me" autocomplete="off" value="me" checked> Mich
                         </label>
                         <label class="btn btn-outline-info">
-                            <input type="radio" name="input_self" id="other" autocomplete="off" value="other"> Jemanden
+                            <input type="radio" name="input_target" id="other" autocomplete="off" value="other"> Jemanden
                             anderen
                         </label>
                     </div>
@@ -52,7 +52,7 @@
                 <div class="col">
                     <h4>Füge einen Alias hinzu</h4>
                     lorem ipstum <br>
-                    <input type="text" class="form-control pt-2" id="input_alias">
+                    <input type="text" class="form-control pt-2" name="input_alias" id="input_alias" value="self">
                 </div>
             </div>
             <div class="row pt-4" id="group_age">
@@ -79,7 +79,7 @@
                 <div class="col">
                     <h4>Woher kommst du?</h4>
                     Die Angabe deiner Stadt oder des Ortsteils reichen uns vollkommen.<br>
-                    <input type="text" class="form-control pt-2" id="input_city" required>
+                    <input type="text" class="form-control pt-2" name="input_city" id="input_city">
                 </div>
             </div>
             <div class="row pt-4" id="group_throat">
@@ -221,7 +221,7 @@
                 <div class="col">
                     <h4>Wie lange musstet du auf dein Testergebnis warten?</h4>
                     TBD <br>
-                    <input type="number" class="form-control pt-2" id="input_tested_waited">
+                    <input type="number" class="form-control pt-2" name="input_tested_waited" id="input_tested_waited">
                 </div>
             </div>
             <div class="row pt-4" id="submit">
@@ -272,13 +272,13 @@
                 //location_autocomplete.addListener('place_changed', fillInAddress);
             }
             $(document).ready(function () {
-                $('#input_self input').on('change', function () {
-                    person_kind = $('input[name=input_self]:checked').val();
+                $('#input_target input').on('change', function () {
+                    person_kind = $('input[name=input_target]:checked').val();
                     if(person_kind == "me"){
                         $("#group_alias").hide()
-                        $("#input_alias").val("me")
                     } else {
                         $("#group_alias").show()
+                        $("#input_alias").val("")
                     }
                 });
                 $('#input_tested input').on('change', function () {
