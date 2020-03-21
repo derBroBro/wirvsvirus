@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Datenspende</title>
+</head>
+
+<body>
+    <form method="POST" action="senden.html">
+        <input type="hidden" name="fingerprint" id="fingerprint">
+
+
+        <div class="container-fluid" style="max-width: 500px">
+            <div class="row pt-4" id="header_image">
+                <div class="col">
+                    <img src="img/header.png" class="img-fluid" width="100%" alt="Responsive image">
+                </div>
+            </div>
+            <div class="row pt-4" id="info_message">
+                <div class="col">
+                    <div class="alert alert-info" role="alert">
+                        <h4 class="alert-heading">Well done!</h4>
+                        <p>Aww yeah, you successfully read this important alert message. This example text is going to
+                            run a
+                            bit
+                            longer so that you can see how spacing within an alert works with this kind of content.</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row pt-4" id="group_self">
+                <div class="col">
+                    <h4>Um wen geht es?</h4>
+                    Möchtest du diese Daten für dich oder jemanden anderes erfassen? Wenn es um jemand anderen geht, beziehen sich alle Fragen auf diese Person.<br>
+                    <div class="btn-group btn-group-toggle d-flex pt-2" id="input_self" data-toggle="buttons">
+                        <label class="btn btn-outline-info active">
+                            <input type="radio" name="input_self" id="me" autocomplete="off" value="me" checked> Mich
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_self" id="other" autocomplete="off" value="other"> Jemanden
+                            anderen
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-4" id="group_alias" style="display: none;">
+                <div class="col">
+                    <h4>Füge einen Alias hinzu</h4>
+                    lorem ipstum <br>
+                    <input type="text" class="form-control pt-2" id="input_alias">
+                </div>
+            </div>
+            <div class="row pt-4" id="group_age">
+                <div class="col">
+                    <h4>Wie alt bist du?</h4>
+                    lorem ipstum <br>
+                    <div class="btn-group btn-group-toggle d-flex pt-2" id="input_age" data-toggle="buttons">
+                        <label class="btn btn-outline-info active">
+                            <input type="radio" name="input_age" autocomplete="off" value="less_25" checked>unter 25
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_age" autocomplete="off" value="26_44">26-44
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_age" autocomplete="off" value="45_59">45-59
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_age" autocomplete="off" value="over_60">über 60
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-4" id="group_alias">
+                <div class="col">
+                    <h4>Woher kommst du?</h4>
+                    Die Angabe deiner Stadt oder des Ortsteils reichen uns vollkommen.<br>
+                    <input type="text" class="form-control pt-2" id="input_city" required>
+                </div>
+            </div>
+            <div class="row pt-4" id="group_throat">
+                <div class="col">
+                    <h4>Hast du Halsschmerzen?</h4>
+                    Bitte wähle aus, ob du keine Schmerzen im Hals hast oder wie stark diese sind.<br>
+                    <div class="btn-group btn-group-toggle d-flex pt-2" id="input_throat" data-toggle="buttons">
+                        <label class="btn btn-outline-info active">
+                            <input type="radio" name="input_throat" autocomplete="off" value="0" checked>keine
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_throat" autocomplete="off" value="1">leicht
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_throat" autocomplete="off" value="2">mittel
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_throat" autocomplete="off" value="3">stark
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-4" id="group_headache">
+                <div class="col">
+                    <h4>Hast du Kopfschmerzen?</h4>
+                    Bitte wähle aus, ob du keine Kopfschmerzen hast oder wie stark diese sind.<br>
+                    <div class="btn-group btn-group-toggle d-flex pt-2" id="input_headache" data-toggle="buttons">
+                        <label class="btn btn-outline-info active">
+                            <input type="radio" name="input_headache" autocomplete="off" value="0" checked>keine
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_headache" autocomplete="off" value="1">leicht
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_headache" autocomplete="off" value="2">mittel
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_headache" autocomplete="off" value="3">stark
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-4" id="group_limb">
+                <div class="col">
+                    <h4>Hast du Gliederschmerzen?</h4>
+                    Nichts alles wie immer. Leicht wie nach dem Sport. Mehr Verspannungen überall? So stark weiß gar nicht wie ich sitzen soll?<br>
+                    <div class="btn-group btn-group-toggle d-flex pt-2" id="input_limb" data-toggle="buttons">
+                        <label class="btn btn-outline-info active">
+                            <input type="radio" name="input_limb" autocomplete="off" value="0" checked>keine
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_limb" autocomplete="off" value="1">leicht
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_limb" autocomplete="off" value="2">mittel
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_limb" autocomplete="off" value="3">stark
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-4" id="group_cough">
+                <div class="col">
+                    <h4>Hast du Husten?</h4>
+                    Bitte wähle aus, ob du keine Husten hast oder wie stark diese sind.<br>
+                    <div class="btn-group btn-group-toggle d-flex pt-2" id="input_cough" data-toggle="buttons">
+                        <label class="btn btn-outline-info active">
+                            <input type="radio" name="input_cough" autocomplete="off" value="0" checked>keine
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_cough" autocomplete="off" value="1">leicht
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_cough" autocomplete="off" value="2">mittel
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_cough" autocomplete="off" value="3">stark
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-4" id="group_fever">
+                <div class="col">
+                    <h4>Hast du Fieber?</h4>
+                    Messen ist immer besser! Frage ansonsten eines deiner Familienmitglieder um deren Einschätzung.<br>
+                    <div class="btn-group btn-group-toggle d-flex pt-2" id="input_fever" data-toggle="buttons">
+                        <label class="btn btn-outline-info active">
+                            <input type="radio" name="input_fever" autocomplete="off" value="0" checked>keinen<br><small>bis 37,5&#8451;</small>
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_fever" autocomplete="off" value="1">leicht<br><small>bis 38&#8451;</small>
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_fever" autocomplete="off" value="2">mittel<br><small>bis 39&#8451;</small>
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_fever" autocomplete="off" value="3">hoch<br><small>ab 39&#8451;</small>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-4" id="group_duration" style="display: none;">
+                <div class="col">
+                    <h4>Vor wie vielen Tagen haben die Symptome angefangen?</h4>
+                    TBD <br>
+                    <input type="number" class="form-control pt-2" id="input_duration">
+                </div>
+            </div>
+            <div class="row pt-4" id="group_tested">
+                <div class="col">
+                    <h4>Wurdest du schon auf CoVid19 getested?</h4>
+                    TBD.<br>
+                    <div class="btn-group btn-group-toggle d-flex pt-2" id="input_tested" data-toggle="buttons">
+                        <label class="btn btn-outline-info active">
+                            <input type="radio" name="input_tested" autocomplete="off" value="1">ja
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_tested" autocomplete="off" value="0" checked>nein
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-4" id="group_tested_result"  style="display: none;">
+                <div class="col">
+                    <h4>Wie ist das Testergebnis ausgefallen?</h4>
+                    TBD.<br>
+                    <div class="btn-group btn-group-toggle d-flex pt-2" id="input_tested_result" data-toggle="buttons">
+                        <label class="btn btn-outline-info active">
+                            <input type="radio" name="input_tested_result" autocomplete="off" value="0" checked>postiv
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="input_tested_result" autocomplete="off" value="1">negativ
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-4" id="group_tested_waited" style="display: none;">
+                <div class="col">
+                    <h4>Wie lange musstet du auf dein Testergebnis warten?</h4>
+                    TBD <br>
+                    <input type="number" class="form-control pt-2" id="input_tested_waited">
+                </div>
+            </div>
+            <div class="row pt-4" id="submit">
+                <div class="col">
+                    <h4>Jetzt schon senden?</h4>
+                    TBD <br>
+                    <button type="submit pt-2" class="btn btn-outline-info btn-block">Senden</button>
+                </div>
+            </div>
+    </form>
+    </div>
+  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <!-- fingerprint2 -->
+    <script src="js/fp2.min.js"></script> 
+
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmX_II-yxdz_pnnpvw1uDxi-evFxYEx0U&libraries=places&callback=initAutocomplete"
+        async defer></script>
+
+
+        <script>
+            var location_autocomplete;
+            function initAutocomplete() {
+                // Create the autocomplete object, restricting the search predictions to
+                // geographical location types.
+                location_autocomplete = new google.maps.places.Autocomplete(
+                    document.getElementById('input_city'), { types: ['geocode'] });
+    
+                // Avoid paying for data that you don't need by restricting the set of
+                // place fields that are returned to just the address components.
+                location_autocomplete.setFields(['address_component']);
+    
+                // When the user selects an address from the drop-down, populate the
+                // address fields in the form.
+                //location_autocomplete.addListener('place_changed', fillInAddress);
+            }
+            $(document).ready(function () {
+                $('#input_self input').on('change', function () {
+                    person_kind = $('input[name=input_self]:checked').val();
+                    if(person_kind == "me"){
+                        $("#group_alias").hide()
+                        $("#input_alias").val("me")
+                    } else {
+                        $("#group_alias").show()
+                    }
+                });
+                $('#input_tested input').on('change', function () {
+                    tested = $('input[name=input_tested]:checked').val();
+                    console.log(tested);
+                    if(tested == "1"){
+                        $("#group_tested_result").show()
+                        $("#group_tested_waited").show()
+                    } else {
+                        $("#group_tested_result").hide()
+                        $("#group_tested_waited").hide()
+                    }
+                });
+                Fingerprint2.get(function (components) {
+                    const hash = Fingerprint2.x64hash128(components.map(({ value }) => value).join(''),31)
+                    $("#fingerprint").val(hash)
+                    console.log(hash)
+                  });
+            });
+        </script>
+    
+    
+</body>
+
+</html>
