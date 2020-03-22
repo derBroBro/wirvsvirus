@@ -43,7 +43,7 @@ def lambda_handler(event, context):
     now = datetime.utcnow()
     data = read_all_data();
     lines = []
-    lines.append( "sender_id;person_id;target_kind;age;location;symptoms_duration;symptoms_calculated_start;symptoms_throat;symptoms_headache;symptoms_limb;symptoms_cough;symptoms_fever;covid19_tested;covid19_test_result;covid19_test_duration" )
+    lines.append( "sender_id;person_id;sample_creation;target_kind;age;location;symptoms_duration;symptoms_calculated_start;symptoms_throat;symptoms_headache;symptoms_limb;symptoms_cough;symptoms_fever;covid19_tested;covid19_test_result;covid19_test_duration" )
     for item in data:
         logger.info(item)
         # Hash this to prevent sending under wrong sender id
@@ -56,7 +56,7 @@ def lambda_handler(event, context):
         person_path = f"{fingerprint}/{alias}"
         person_id = md5(person_path)
         
-        lines.append( f"{sender_id};{person_id};{target};{item['age']};{item['location']};{item['symptoms_duration']};{item['symptoms_calculated_start']};{item['symptoms_throat']};{item['symptoms_headache']};{item['symptoms_limb']};{item['symptoms_cough']};{item['symptoms_fever']};{item['covid19_tested']};{item['covid19_test_result']};{item['covid19_test_duration']}" )
+        lines.append( f"{sender_id};{person_id};{item['sample_creation']};{target};{item['age']};{item['location']};{item['symptoms_duration']};{item['symptoms_calculated_start']};{item['symptoms_throat']};{item['symptoms_headache']};{item['symptoms_limb']};{item['symptoms_cough']};{item['symptoms_fever']};{item['covid19_tested']};{item['covid19_test_result']};{item['covid19_test_duration']}" )
         
     
     file_prefix = now.strftime("%Y-%m-%d_%H-00")

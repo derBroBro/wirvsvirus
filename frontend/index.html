@@ -28,7 +28,14 @@
                 <div class="col">
                     <div class="alert alert-info" role="alert">
                         <h4 class="alert-heading">Herzlich Willkommen</h4>
-                        <p>beim Fragebogen von coronatracking_datenspende <br><ul>keine Anmeldung erforderlich<br>anonyme Datenspende<br>gesammelte Daten stehen allen zur Verfügung<br>Datenspende für Familienangehörige möglich</ul></p>
+                        <p>Wichtig sind uns bei der Erhebung der Daten:<br>
+                            <ul>
+                                <li>keine Anmeldung erforderlich</li>
+                                <li>anonyme Datenspende</li>
+                                <li>gesammelte Daten stehen allen zur Verfügung</li>
+                                <li>Datenspende für Familienangehörige möglich</li>
+                            </ul>
+                        </p>
                     </div>
 
                 </div>
@@ -82,7 +89,7 @@
                     Die Angabe deiner Stadt oder des Ortsteils reichen uns vollkommen.<br>
                     <div class="alert alert-warning" role="alert" id="location_warning" style="display: none;">
                         Bitte wähle eine Location mit dem Dropdown aus. Diese muss innerhalb von Deutschland liegen.
-                      </div>
+                    </div>
                     <input type="text" class="form-control pt-2" id="location" name="location" required>
                 </div>
             </div>
@@ -227,8 +234,8 @@
             </div>
             <div class="row pt-4" id="group_tested">
                 <div class="col">
-                    <h4>Wurdest du bereits auf CoVid19 getested?</h4>
-                    Bitte wähle aus, ob du schon auf CoVid 19 medizinisch getestet wurdest. <br>Wenn dir das finale
+                    <h4>Wurdest du bereits auf COVID-19 getested?</h4>
+                    Bitte wähle aus, ob du schon auf COVID-19 medizinisch getestet wurdest. <br>Wenn dir das finale
                     Testergebnis noch nicht vorliegt bitten wir dich diese Frage mit "nein" zu beantworten.<br>
                     <div class="btn-group btn-group-toggle d-flex pt-2" data-toggle="buttons">
                         <label class="btn btn-outline-info active">
@@ -287,14 +294,24 @@
                     </div>
                 </div>
             </div>
-            <div class="row pt-4" id="submit">
+            <div class="row pt-4 pb-5" id="submit">
                 <div class="col">
-                    <h4>Vielen Dank für deine Antworten! </h4>
-                    Das waren schon alle Fragen für heute. <br>Beantworte diese Fragen gerne Morgen wieder.
-                    <button type="submit pt-2" class="btn btn-outline-info btn-block">Jetzt senden</button>
+                    <div class="alert alert-info" role="alert">
+                        Beantworte diese Fragen gerne Morgen wieder.
+                    </div>
+
+                    <button type="submit pt-2" class="btn btn-info btn-block">Jetzt senden</button>
+                </div>
+            </div>
+            <div class="row pt-4 pb-5" id="submit">
+                <div class="col" style="text-align:center">
+                    <a href="/">Start</a> - 
+                    <a href="impress.html">Impressum</a> - 
+                    <a href="daten.html">zu den Daten</a>
                 </div>
             </div>
     </form>
+
     </div>
 
     <!-- Optional JavaScript -->
@@ -324,7 +341,7 @@
             // Create the autocomplete object, restricting the search predictions to
             // geographical location types.
             location_autocomplete = new google.maps.places.Autocomplete(
-                document.getElementById('location'), { types: ['(cities)'], componentRestrictions: {country: "de"} });
+                document.getElementById('location'), { types: ['(cities)'], componentRestrictions: { country: "de" } });
 
             // Avoid paying for data that you don't need by restricting the set of
             // place fields that are returned to just the address components.

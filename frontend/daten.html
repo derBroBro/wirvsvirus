@@ -16,24 +16,131 @@
 <body>
 
 
-        <div class="container-fluid" style="max-width: 500px">
-            <div class="row pt-4" id="header_image">
-                <div class="col">
-                    <img src="img/header.png" class="img-fluid" width="100%" alt="Responsive image">
-                </div>
-            </div>
-            <div class="row pt-4">
-                <div class="col">
-                    <div class="alert alert-success" role="alert">
-                        <h4 class="alert-heading">Vielen Dank &#x1F973;</h4>
-                        <p>Deine &#x1f9a0; Daten sind erfolgreich bei uns eingegangen.</p>
-                        <hr>
-                        <p class="mb-0"><b>Du willst noch mehr helfen? Dann teile uns auf </b><br>
-                            <a href="https://twitter.com/intent/tweet?text=Ich%20habe%20eine%20&#x1f9a0;Datenprobe%20auf%20abc.de%20agebeben.%20Probiere%20du%20es%20auch%20und%20hilf%20dabei%20Corona%20besser%20zu%20verstehen.">Twitter</a>
-                        </p>
-                      </div>
+    <div class="container-fluid" style="max-width: 1400px">
+        <div class="row pt-4">
+            <div class="col">
+                <div class="alert alert-info" role="alert">
+                    <h4 class="alert-heading">Öffentliche Daten, dass is unser Ziel</h4>
+                    <p>Unsere oberstes Ziel ist eine öffentliche Platform zum austausch von anonymen Gesundeheitsdaten
+                        zu schaffen.
+                    </p>
+                    <hr>
+                    <p class="mb-0"><b>Bitte beachte</b><br>
+                        Die Daten sind nicht qualifiziert, dass heist jeder kann seine subjektive Empfindung kund tun. <br>
+                        Beachten zudem, dass die Daten mehrfach eine Probe abgegeben werden kann. Diese findet sich dann unter gleicher person_id auch im Datensatz wirder. Es ist dir überlassen wir du damit umgehst.
+                        <br>
+                        Wir arbeiten stark daran, Script und Bots zu unterbinden, jedoch können wir dies nicht
+                        ausschließen. <br>
+                    </p>
+                    <br>
+                    <p>
+                        Bitte gehen daher mit deinen Schlüssen und Ergebnissen verantwortungsbewusst um.
+                    </p>
                 </div>
             </div>
         </div>
+        <div class="row pt-4">
+            <div class="col">
+                <div class="alert alert-secondary" role="alert">
+                    <p>
+                        Die Daten setzten sich wie folgt zusammen:
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Feld</th>
+                                    <th scope="col">Beschreibung</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sender_id</td>
+                                    <td>Der Hash des Absenders (md5 + <a
+                                            href="https://github.com/Valve/fingerprintjs2">fingerprintjs2</a>). Ein
+                                        Absende kann auch Proben für Aliase abgeben.
+                                        Diese haben jedoch immer die gleiche sender_id.</td>
+                                </tr>
+                                <tr>
+                                    <td>person_id</td>
+                                    <td>Der Hash des Absenders + Alias (md5 + <a
+                                            href="https://github.com/Valve/fingerprintjs2">fingerprintjs2</a>).
+                                        Diese ID sollte bei gleichem Absender und Alias gleich bleiben.</td>
+                                </tr>
+
+                                <tr>
+                                    <td>sample_creation</td>
+                                    <td>Wann (utc) wurde die Probe abgegeben.</td>
+                                </tr>
+                                <tr>
+                                    <td>target_kind</td>
+                                    <td>Wurde die Proble für einen selbst (self) oder jemanden anderen (other)
+                                        abgegeben.</td>
+                                </tr>
+                                <tr>
+                                    <td>age</td>
+                                    <td>Altersgruppe der Person.</td>
+                                </tr>
+                                <tr>
+                                    <td>location</td>
+                                    <td>Standort der Person.</td>
+                                </tr>
+                                <tr>
+                                    <td>symptoms_duration</td>
+                                    <td>Wie lange hat die Person schon die Symptome. 7 = eine Woche oder mehr.</td>
+                                </tr>
+                                <tr>
+                                    <td>symptoms_calculated_start</td>
+                                    <td>Errechneter Start der Symptome (Abgabedatum - Tage).</td>
+                                </tr>
+                                <tr>
+                                    <td>symptoms_throat<br>symptoms_headache<br>symptoms_limb<br>symptoms_cough<br>symptoms_fever</td>
+                                    <td>Stärke der Symptome 0 = Keine, 1 = Leicht, 2 = Mittel, 3 = Stark</td>
+                                </tr>
+                                <tr>
+                                    <td>covid19_tested</td>
+                                    <td>Wurde eine Test durchgeführt? 0 = Nein, 1 = Ja</td>
+                                </tr>
+                                <tr>
+                                    <td>covid19_test_result</td>
+                                    <td>Ergebniss des Tests. 0 = negativ, 1 = positiv</td>
+                                </tr>
+                                <tr>
+                                    <td>covid19_test_duration</td>
+                                    <td>Wie lange (Tage) musste auf das Ergebniss gewartet werden. 7 = eine Woche oder
+                                        mehr. </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </p>
+                    <hr>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Datum</th>
+                                <th scope="col">Uhrzeig</th>
+                                <th scope="col">Download-Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>22.03.2020</td>
+                                <td>14:00</td>
+                                <td><a href="http://wirvsvirus-public.s3-website.eu-central-1.amazonaws.com/data/2020-03-22_14-00.csv" target="_blank">2020-03-22_14-00.csv</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <div class="row pt-4 pb-5" id="submit">
+            <div class="col" style="text-align:center">
+                <a href="/">Start</a> - 
+                <a href="impress.html">Impressum</a> - 
+                <a href="daten.html">zu den Daten</a>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

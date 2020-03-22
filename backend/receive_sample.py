@@ -24,7 +24,7 @@ def get_post_parameter(event):
     if not "body" in event:
         return body_vars
 
-    body = urllib.parse.unquote(event["body"])
+    body = urllib.parse.unquote_plus(event["body"])
     for line in body.split("&"):
         line_data = line.split("=")
         if len(line_data) == 2:
@@ -44,12 +44,10 @@ def md5(text):
     return hashlib.md5(text.encode()).hexdigest()
 
 def lambda_handler(event, context):
+    ip = event["requestContext"]["identity"]["sourceIp"]
+    logger.info(event)
     items = get_post_parameter(event)
     logger.info(items)
-    
-
-    
-    # {'fingerprint': '1a7b408070ce01dd293f61f6974f3e5b', 'target': 'me', 'alias': 'self', 'age': 'less_25', 'city': '', 'throat': '0', 'headache': '0', 'limb': '0', 'cough': '0', 'fever': '0', 'tested': '0', 'tested_result': '0'}
     
     now = datetime.utcnow()
     now_unix = int(time.mktime(now.timetuple()))
@@ -58,26 +56,22 @@ def lambda_handler(event, context):
     alias = items["alias"]
     target = items["target"]
 
-    # Hash this to prevent sending under wrong sender id
-    sender_id = md5(sender_fingerprint)
-    person_path = f"{sender_id}/{alias}"
-    person_id = md5(person_path)
+    person_path = f"{sender_fingerprint}/{alias}"
 
-    logger.info(f"Got sample from {sender_fingerprint}(id:{sender_id}) for {alias} ({person_path} = id:{person_id})")
+    logger.info(f"Got sample from {sender_fingerprint} for {alias} ({target})")
     
     if target == "other":
         logger.info("Sample was submitted for somene else")
         
-
     duration = items["duration"]
     start_time = now - timedelta(hours=int(duration)*24)
     
-    key = f"{sender_id}/{alias}"
     data = {
         "sample_creation": now.isoformat(),
-        "sender_id": sender_id,
-        "person_id": person_id,
-        "target_kind": target,
+        "fingerprint": sender_fingerprint,
+        "target": target,
+        "alias": alias,
+        "ip": ip,
         "age": items["age"],
         "location" : items["location"],
         "symptoms_duration" : items["duration"],
@@ -93,5 +87,4 @@ def lambda_handler(event, context):
     }
     write_key(f"{person_path}/{now_unix}.json",data)
     
-    #return redirect("http://localhost:8000/frontend")
-    return create_response(json.dumps(data, indent=4))
+    return redirect("http://datenspende.exoit.de/danke.html")
